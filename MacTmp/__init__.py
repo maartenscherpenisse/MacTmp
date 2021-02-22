@@ -5,7 +5,7 @@ import os
 def CPU_Temp():
     tmp = [each.strip() for each in (os.popen('sudo powermetrics --samplers smc -i1 -n1')).read().split('\n') if each != '']
     for each in tmp:
-        if 'CPU die temperature' in tmp:
+        if 'CPU die temperature' in each:
             return each.strip('CPU die temperature: ')
     return 'CPU Temperature not found'
 
